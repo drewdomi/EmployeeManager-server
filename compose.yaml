@@ -1,9 +1,16 @@
 services:
-  postgres:
-    image: 'postgres:latest'
+  employee-manager-db:
+    container_name: employee-manager-db
+    image: postgres:16.2
+    restart: always
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: postgres
     ports:
       - '5432'
+    volumes:
+      - ./.docker/employee-manager-db:/var/lib/postgresql/data
+
+volumes:
+  employee-manager-db:
