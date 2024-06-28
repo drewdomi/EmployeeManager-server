@@ -1,5 +1,6 @@
 package com.drewdomi.employeemanager.employee;
 
+import com.drewdomi.employeemanager.employee.dto.CreateEmployeeDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,6 +63,18 @@ public class EmployeeModel {
     @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
+    }
+
+    public EmployeeModel(CreateEmployeeDto dto) {
+        this.name = dto.name();
+        this.motherName = dto.motherName();
+        this.rg = dto.rg();
+        this.cpf = dto.cpf();
+        this.birthDate = dto.birthDate();
+        this.plan = dto.plan();
+        this.admissionDate = dto.admissionDate();
+        this.validityDate = dto.validityDate();
+        this.registration = dto.registration();
     }
 }
 
