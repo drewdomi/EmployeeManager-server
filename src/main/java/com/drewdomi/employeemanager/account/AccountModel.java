@@ -1,4 +1,4 @@
-package com.drewdomi.employeemanager.user;
+package com.drewdomi.employeemanager.account;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
